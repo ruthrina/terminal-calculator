@@ -1,31 +1,16 @@
-def calculator():
-    print("Simple calculator")
-    print("operations: +,-,*,/")
+def word_counter(text):
+    words = text.split()
+    word_count = {}
+    
+    for word in words:
+        word_count[word] = word_count.get(word, 0) + 1
+    
+    return word_count
 
-    operation = input("Enter operation(+,-,*,/)")
-    num1 =float(input("Enter first number:"))
-    num2 =float(input("Enter second number:"))
+# Example usage:
+input_text = "This is a sample text. This text will be used for word counting."
+counts = word_counter(input_text)
 
-    if operation =="+":
-        result = num1+num2
-    elif operation=="-":
-        result= num1-num2
-    elif operation == "*":
-        result = num1*num2
-    elif operation =="/":
-        if num2 ==0:
-            print("cannot divide by zero")
-
-            return
-            result=num1/num2
-
-    else:
-        print("Invalid operation!")
-
-        return
-
-    print(f"Result: {result}")
-
-
-calculator()                
-
+# Display word counts
+for word, count in counts.items():
+    print(f"'{word}' occurs {count} time(s)")
